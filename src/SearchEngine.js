@@ -2,5 +2,11 @@ import React from "react";
 import "./SearchEngine.css";
 
 export default function SearchEngine() {
-  return <div className="SearchEngine">This will be the search engine.</div>;
+  return (
+    <div className="SearchEngine">
+      <form id="search-city">
+        <input type="search" id="city-input" placeholder="Change city..." />
+      </form>
+    </div>
+  );
 }

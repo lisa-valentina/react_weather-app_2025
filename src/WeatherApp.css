@@ -1,3 +1,117 @@
-.WeatherApp {
+body {
+  background-color: #53a8b6;
+  padding: 50px;
+  max-width: 900px;
+  margin: 0 auto;
   font-family: "Barlow Condensed", sans-serif;
+}
+a.favorites span {
+  display: none;
+  color: #5585b5;
+}
+a.favorites:hover span {
+  display: inline;
+  position: absolute;
+  padding: 15px 5px;
+  font-size: 13px;
+}
+a.current-location span {
+  display: none;
+  color: #5585b5;
+}
+a.current-location:hover span {
+  display: block;
+  position: absolute;
+  right: 40px;
+  padding-top: 15px;
+  font-size: 13px;
+}
+button {
+  background: none;
+  border: none;
+  transition: all 150ms ease-in-out;
+}
+
+.card {
+  background-color: #bbe4e9;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  padding: 5px 5px;
+}
+.icon {
+  color: #5585b5;
+  padding: 15px 0px;
+  font-size: 20px;
+}
+.favorites {
+  text-align: left;
+}
+.current-location {
+  text-align: right;
+}
+.weather {
+  font-size: 20px;
+}
+.weather-border {
+  border-left: dotted 1px grey;
+  padding: 0px 0px 0px 15px;
+}
+.weather-icons {
+  font-size: 50px;
+  color: #f67280;
+}
+.icons-left {
+  position: relative;
+  left: -30px;
+}
+
+.weather-icon-today {
+  position: relative;
+  top: 15px;
+  left: 40px;
+  font-size: 90px;
+  color: #f67280;
+}
+.weather-forecast {
+  border-right: solid 1.5px black;
+  text-align: right;
+}
+
+.weather-numbers {
+  position: relative;
+  bottom: +24px;
+  text-align: right;
+}
+.weather-details {
+  position: relative;
+  bottom: +24px;
+}
+.fahrenheit {
+  position: relative;
+  right: -6px;
+}
+.fahrenheit:hover {
+  color: #5585b5;
+  transform: scale(150%);
+}
+.celsius:hover {
+  color: #5585b5;
+  transform: scale(150%);
+}
+.divider-1 {
+  position: relative;
+  right: -4px;
+}
+
+.divider-2 {
+  position: relative;
+  right: 3px;
+}
+
+.currentDegrees {
+  font-weight: bold;
+  font-size: 40px;
 }

@@ -1,0 +1,18 @@
+h1,
+h3 {
+  position: relative;
+  top: -14px;
+  text-align: right;
+}
+
+h1 {
+  font-size: 48px;
+}
+
+h3 {
+  font-size: 30px;
+}
+a.favorites span {
+  display: none;
+  color: #5585b5;
+}

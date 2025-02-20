@@ -4,7 +4,11 @@ import "./CurrentWeather.css";
 export default function CurrentWeather() {
   return (
     <div className="CurrentWeather">
-      This will show the current weather at some point.
+      <h1>Current City</h1>
+      <h3>
+        <div>Current Date</div>
+        <div>Current Time </div>
+      </h3>
     </div>
   );
 }
