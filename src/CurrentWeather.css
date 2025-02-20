@@ -2,7 +2,7 @@ h1,
 h3 {
   position: relative;
   top: -14px;
-  text-align: right;
+  text-align: center;
 }
 
 h1 {
@@ -12,7 +12,13 @@ h1 {
 h3 {
   font-size: 30px;
 }
-a.favorites span {
-  display: none;
-  color: #5585b5;
+
+.weather-today {
+  text-align: left;
+  font-size: 25px;
+}
+
+.weather-details {
+  text-align: right;
+  font-size: 25px;
 }

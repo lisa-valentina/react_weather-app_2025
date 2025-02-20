@@ -1,8 +1,10 @@
+import react from "react";
 import "./WeatherApp.css";
-import Footer from "./Footer";
+
 import SearchEngine from "./SearchEngine";
 import CurrentWeather from "./CurrentWeather";
 import WeatherForecast from "./WeatherForecast";
+import Footer from "./Footer";
 
 export default function WeatherApp() {
   return (
@@ -12,7 +14,7 @@ export default function WeatherApp() {
           <div className="row">
             <SearchEngine />
 
-            <div className="col-9">
+            <div className="col">
               <CurrentWeather />
             </div>
           </div>
