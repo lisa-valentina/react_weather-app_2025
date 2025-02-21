@@ -22,3 +22,8 @@ h3 {
   text-align: right;
   font-size: 25px;
 }
+
+.weather-icon {
+  height: 150px;
+  display: block;
+}

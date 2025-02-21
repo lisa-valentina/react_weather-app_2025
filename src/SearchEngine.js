@@ -5,7 +5,12 @@ export default function SearchEngine() {
   return (
     <div className="SearchEngine row">
       <form id="search-city">
-        <input type="search" id="city-input" placeholder="Change city..." />
+        <input
+          type="search"
+          id="city-input"
+          placeholder="Change city..."
+          autoFocus
+        />
       </form>
       <br />
     </div>
