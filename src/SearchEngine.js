@@ -3,6 +3,7 @@ import CurrentWeather from "./CurrentWeather";
 import axios from "axios";
 
 import "./SearchEngine.css";
+import WeatherForecast from "./WeatherForecast";
 
 export default function SearchEngine(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -51,6 +52,7 @@ export default function SearchEngine(props) {
         </form>
         <br />
         <CurrentWeather weatherData={weatherData} />
+        <WeatherForecast defaultCity={weatherData.city} />
       </div>
     );
   } else {
