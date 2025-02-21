@@ -23,18 +23,27 @@ export default function UnitConversion(props) {
           <button className="fahrenheit" onClick={convertToFahrenheit}>
             °F
           </button>
+          <br />
+          <span> feels like {Math.round(props.feelsLike)} °C</span>
         </span>
       </div>
     );
   } else {
-    let fahrenheit = Math.round((props.celsius * 9) / 5 + 32);
     return (
       <div className="UnitConversion">
-        {fahrenheit}
+        <span className="currentDegrees">
+          {" "}
+          {Math.round((props.celsius * 9) / 5 + 32)}
+        </span>
         <button className="celsius" onClick={showCelsius}>
           °C
         </button>
         | °F
+        <br />
+        <span>
+          {" "}
+          feels like {Math.round((props.feelsLike * 9) / 5 + 32)} °F
+        </span>{" "}
       </div>
     );
   }

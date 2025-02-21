@@ -9,15 +9,13 @@ export default function CurrentWeather(props) {
     <div className="CurrentWeather">
       <div className="row">
         <div className="col-3 weather-today">
-          <UnitConversion celsius={props.weatherData.celsiusTemp} />
+          <UnitConversion
+            celsius={props.weatherData.celsiusTemp}
+            feelsLike={props.weatherData.feelsCelsiusTemp}
+          />
           <span className="currentDescription text-capitalize">
             {props.weatherData.weatherDescription}
           </span>{" "}
-          <br />
-          feels like {Math.round(props.weatherData.feelsCelsiusTemp)}
-          <span className="maxTemp"></span> °
-          <span className="divider-2">|</span>
-          <span className="minTemp"></span> °
         </div>{" "}
         <div className="col-2 ">
           <img src={props.weatherData.icon} className="weather-icon-today" />
