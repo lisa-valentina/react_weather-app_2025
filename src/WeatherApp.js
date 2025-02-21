@@ -15,7 +15,7 @@ export default function WeatherApp() {
             <SearchEngine />
 
             <div className="col">
-              <CurrentWeather />
+              <CurrentWeather defaultCity="New York" />
             </div>
           </div>
           <br />
