@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
+import DateTime from "./DateTime";
+
 import "./CurrentWeather.css";
 
 export default function CurrentWeather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
-  const [date, setDate] = useState(null);
 
   function handleResponse(response) {
     console.log(response.data);
@@ -17,9 +18,7 @@ export default function CurrentWeather(props) {
       humidity: response.data.temperature.humidity,
       weatherDescription: response.data.condition.description,
       icon: response.data.condition.icon_url,
-    });
-    setDate({
-      month: response.data.time,
+      date: new Date(response.data.time * 1000),
     });
   }
 
@@ -50,8 +49,7 @@ export default function CurrentWeather(props) {
           <div className="col-4">
             <h1>{weatherData.city}</h1>
             <h3>
-              <div>Current Date {date.month}</div>
-              <div>Current Time </div>
+              <DateTime date={weatherData.date} />
             </h3>
           </div>
           <div className="col-3 weather-details">
