@@ -6,19 +6,23 @@ import "./CurrentWeather.css";
 
 export default function CurrentWeather(props) {
   return (
-    <div className="CurrentWeather">
+    <div>
       <div className="row">
         <div className="col-3 weather-today">
           <UnitConversion
             celsius={props.weatherData.celsiusTemp}
             feelsLike={props.weatherData.feelsCelsiusTemp}
           />
-          <span className="currentDescription text-capitalize">
+          <span className="text-capitalize">
             {props.weatherData.weatherDescription}
           </span>{" "}
         </div>{" "}
         <div className="col-2 ">
-          <img src={props.weatherData.icon} className="weather-icon-today" />
+          <img
+            src={props.weatherData.icon}
+            className="weather-icon-today"
+            alt={props.weatherData.weatherDescription}
+          />
         </div>
         <div className="col-4">
           <h1>{props.weatherData.city}</h1>
@@ -28,10 +32,10 @@ export default function CurrentWeather(props) {
         </div>
         <div className="col-3 weather-details">
           <br />
-          Precipitation <span className="precipitation"></span> %<br />
-          Humidity <span className="humidity"></span>
+          <br />
+          Humidity <span></span>
           {props.weatherData.humidity} %<br />
-          Wind <span className="wind"></span>
+          Wind <span></span>
           {Math.round(props.weatherData.wind * 3.6)} km/h <br />
         </div>
       </div>

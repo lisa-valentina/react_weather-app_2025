@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./WeatherForecast.css";
 import DateForecast from "./DateForecast";
-import SearchEngine from "./SearchEngine";
 
 export default function WeatherForecast(props) {
   const [loaded, setLoaded] = useState({ ready: false });
@@ -33,12 +32,14 @@ export default function WeatherForecast(props) {
             <img
               src={weatherForecast[1].condition.icon_url}
               className="icons-left"
+              alt={weatherForecast[1].condition.description}
             />
           </div>
           <div className="col-2 weather-border">
             <img
               src={weatherForecast[4].condition.icon_url}
               className="icons-right"
+              alt={weatherForecast[4].condition.description}
             />
           </div>
           <div className="col-4 weather-right">
@@ -65,12 +66,14 @@ export default function WeatherForecast(props) {
             <img
               src={weatherForecast[2].condition.icon_url}
               className="icons-left"
+              alt={weatherForecast[2].condition.description}
             />
           </div>
           <div className="col-2 weather-border">
             <img
               src={weatherForecast[5].condition.icon_url}
               className="icons-right"
+              alt={weatherForecast[5].condition.description}
             />
           </div>
           <div className="col-4 weather-right">
@@ -97,12 +100,14 @@ export default function WeatherForecast(props) {
             <img
               src={weatherForecast[3].condition.icon_url}
               className="icons-left"
+              alt={weatherForecast[3].condition.description}
             />
           </div>
           <div className="col-2 weather-border">
             <img
               src={weatherForecast[6].condition.icon_url}
               className="icons-right"
+              alt={weatherForecast[6].condition.description}
             />
           </div>
           <div className="col-4 weather-right">
