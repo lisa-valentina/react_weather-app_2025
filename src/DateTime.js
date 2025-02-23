@@ -1,5 +1,3 @@
-import react from "react";
-
 export default function DateTime(props) {
   let months = [
     "Jan",
