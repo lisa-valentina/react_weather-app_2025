@@ -7,7 +7,7 @@ import "./CurrentWeather.css";
 export default function CurrentWeather(props) {
   return (
     <div>
-      <div className="row">
+      <div className="row ">
         <div className="col-3 weather-today">
           <UnitConversion
             celsius={props.weatherData.celsiusTemp}
@@ -32,11 +32,8 @@ export default function CurrentWeather(props) {
         </div>
         <div className="col-3 weather-details">
           <br />
-          <br />
-          Humidity <span></span>
-          {props.weatherData.humidity} %<br />
-          Wind <span></span>
-          {Math.round(props.weatherData.wind * 3.6)} km/h <br />
+          Humidity {props.weatherData.humidity}%<br />
+          Wind {Math.round(props.weatherData.wind * 3.6)}km/h <br />
         </div>
       </div>
     </div>

@@ -2,16 +2,6 @@
   text-align: left;
   font-size: 25px;
 }
-.divider-1 {
-  position: relative;
-  right: -4px;
-  font-weight: 100;
-}
-
-.divider-2 {
-  position: relative;
-  right: 3px;
-}
 
 .currentDegrees {
   font-weight: bold;

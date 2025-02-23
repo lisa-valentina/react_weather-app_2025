@@ -23,14 +23,7 @@ h3 {
   font-size: 25px;
 }
 
-.weather-icon {
+.weather-icon-today {
   height: 150px;
   display: block;
-}
-
-.weather-icon-today {
-  position: relative;
-  top: 15px;
-  left: 40px;
-  font-size: 90px;
 }

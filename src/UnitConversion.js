@@ -24,7 +24,7 @@ export default function UnitConversion(props) {
             °F
           </button>
           <br />
-          <span> feels like {Math.round(props.feelsLike)} °C</span>
+          <span> Feels like {Math.round(props.feelsLike)} °C</span>
         </span>
       </div>
     );
