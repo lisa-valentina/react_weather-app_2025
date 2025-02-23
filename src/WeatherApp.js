@@ -1,6 +1,5 @@
 import react from "react";
 import SearchEngine from "./SearchEngine";
-import WeatherForecast from "./WeatherForecast";
 import Footer from "./Footer";
 
 import "./WeatherApp.css";
