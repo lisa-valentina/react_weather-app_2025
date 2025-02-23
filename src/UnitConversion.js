@@ -42,7 +42,7 @@ export default function UnitConversion(props) {
         <br />
         <span>
           {" "}
-          feels like {Math.round((props.feelsLike * 9) / 5 + 32)} °F
+          Feels like {Math.round((props.feelsLike * 9) / 5 + 32)} °F
         </span>{" "}
       </div>
     );
