@@ -13,6 +13,7 @@ export default function SearchEngine(props) {
     setWeatherData({
       ready: true,
       city: response.data.city,
+      coordinates: response.data.coordinates,
       celsiusTemp: response.data.temperature.current,
       feelsCelsiusTemp: response.data.temperature.feels_like,
       wind: response.data.wind.speed,
@@ -52,7 +53,7 @@ export default function SearchEngine(props) {
         </form>
         <br />
         <CurrentWeather weatherData={weatherData} />
-        <WeatherForecast defaultCity={weatherData.city} />
+        <WeatherForecast coordinates={weatherData.coordinates} />
       </div>
     );
   } else {

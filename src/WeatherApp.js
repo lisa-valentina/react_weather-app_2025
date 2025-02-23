@@ -15,9 +15,6 @@ export default function WeatherApp() {
               <SearchEngine defaultCity="Paris" />
             </div>
           </div>
-          <br />
-          <br />
-          <WeatherForecast />
         </div>
       </div>
       <Footer />

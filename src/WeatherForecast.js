@@ -1,100 +1,128 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./WeatherForecast.css";
+import DateForecast from "./DateForecast";
+import SearchEngine from "./SearchEngine";
 
 export default function WeatherForecast(props) {
-  const [weatherForecast, setWeatherForecast] = useState({ ready: false });
-  const [newCity, setNewCity] = useState(props.defaultCity);
+  const [loaded, setLoaded] = useState({ ready: false });
+  const [weatherForecast, setWeatherForecast] = useState(null);
 
   function handleResponse(response) {
-    setWeatherForecast({
-      ready: true,
-      celsiusTemp: response.data.daily.temperature[0],
-    });
-    alert(`${weatherForecast.celsiusTemp}`);
-    forecast();
+    setWeatherForecast(response.data.daily);
+    setLoaded({ ready: true });
   }
 
-  function forecast() {
+  useEffect(() => {
+    setLoaded({ ready: false });
+  }, [props.coordinates]);
+
+  if (loaded.ready) {
+    return (
+      <div className="container">
+        <div className="row weather">
+          <div className="col-4">
+            <DateForecast day={weatherForecast[1].time} />
+            <div className="text-capitalize">
+              {weatherForecast[1].condition.description}
+            </div>
+            {Math.round(weatherForecast[1].temperature.minimum)}°{" "}
+            {Math.round(weatherForecast[1].temperature.maximum)}°
+          </div>
+          <div className="col-2">
+            <img
+              src={weatherForecast[1].condition.icon_url}
+              className="icons-left"
+            />
+          </div>
+          <div className="col-2 weather-border">
+            <img
+              src={weatherForecast[4].condition.icon_url}
+              className="icons-right"
+            />
+          </div>
+          <div className="col-4 weather-right">
+            <DateForecast day={weatherForecast[4].time} />
+            <div className="text-capitalize">
+              {" "}
+              {weatherForecast[4].condition.description}
+            </div>
+            {Math.round(weatherForecast[4].temperature.minimum)}°{" "}
+            {Math.round(weatherForecast[4].temperature.maximum)}°{" "}
+          </div>
+        </div>
+        <div className="row weather">
+          <div className="col-4">
+            <DateForecast day={weatherForecast[2].time} />
+            <div className="text-capitalize">
+              {" "}
+              {weatherForecast[2].condition.description}
+            </div>
+            {Math.round(weatherForecast[2].temperature.minimum)}°{" "}
+            {Math.round(weatherForecast[2].temperature.maximum)}°
+          </div>
+          <div className="col-2">
+            <img
+              src={weatherForecast[2].condition.icon_url}
+              className="icons-left"
+            />
+          </div>
+          <div className="col-2 weather-border">
+            <img
+              src={weatherForecast[5].condition.icon_url}
+              className="icons-right"
+            />
+          </div>
+          <div className="col-4 weather-right">
+            <DateForecast day={weatherForecast[5].time} />
+            <div className="text-capitalize">
+              {" "}
+              {weatherForecast[5].condition.description}
+            </div>
+            {Math.round(weatherForecast[5].temperature.minimum)}°{" "}
+            {Math.round(weatherForecast[5].temperature.maximum)}°
+          </div>
+        </div>
+        <div className="row weather">
+          <div className="col-4">
+            <DateForecast day={weatherForecast[3].time} />
+            <div className="text-capitalize">
+              {" "}
+              {weatherForecast[3].condition.description}
+            </div>
+            {Math.round(weatherForecast[3].temperature.minimum)}°{" "}
+            {Math.round(weatherForecast[3].temperature.maximum)}°
+          </div>
+          <div className="col-2">
+            <img
+              src={weatherForecast[3].condition.icon_url}
+              className="icons-left"
+            />
+          </div>
+          <div className="col-2 weather-border">
+            <img
+              src={weatherForecast[6].condition.icon_url}
+              className="icons-right"
+            />
+          </div>
+          <div className="col-4 weather-right">
+            <DateForecast day={weatherForecast[6].time} />
+            <div className="text-capitalize">
+              {" "}
+              {weatherForecast[6].condition.description}
+            </div>
+            {Math.round(weatherForecast[6].temperature.minimum)}°{" "}
+            {Math.round(weatherForecast[6].temperature.maximum)}°{" "}
+          </div>
+        </div>
+      </div>
+    );
+  } else {
     const apiKey = "242e181ca0a34d6a4t3befc66o8e43fa";
-    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${newCity}&key=${apiKey}&units=metric`;
+    let longitude = props.coordinates.longitude;
+    let latitude = props.coordinates.latitude;
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
+    return <div>loading...</div>;
   }
-
-  return (
-    <div className="container">
-      <div className="row weather">
-        <div className="col-4">
-          Sunday +1 <br />
-          Mostly cloudy <br />
-          12° 8°
-        </div>
-        <div className="col-2">
-          <img
-            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
-            className="icons-left"
-          />
-        </div>
-        <div className="col-2 weather-border">
-          <img
-            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
-            className="icons-right"
-          />
-        </div>
-        <div className="col-4 weather-right">
-          Wednesday +4 <br />
-          Mostly cloudy <br />
-          12° 8°
-        </div>
-      </div>
-      <div className="row weather">
-        <div className="col-4">
-          Monday +2 <br />
-          Mostly cloudy <br />
-          12° 8°
-        </div>
-        <div className="col-2">
-          <img
-            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
-            className="icons-left"
-          />
-        </div>
-        <div className="col-2 weather-border">
-          <img
-            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
-            className="icons-right"
-          />
-        </div>
-        <div className="col-4 weather-right">
-          Thursday +5 <br />
-          Mostly cloudy <br />
-          12° 8°
-        </div>
-      </div>
-      <div className="row weather">
-        <div className="col-4">
-          Tuesday +3 <br />
-          Mostly cloudy <br />
-          12° 8°
-        </div>
-        <div className="col-2">
-          <img
-            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
-            className="icons-left"
-          />
-        </div>
-        <div className="col-2 weather-border">
-          <img
-            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
-            className="icons-right"
-          />
-        </div>
-        <div className="col-4 weather-right">
-          Friday +6 <br />
-          Mostly cloudy <br />
-          12° 8°
-        </div>
-      </div>
-    </div>
-  );
 }
